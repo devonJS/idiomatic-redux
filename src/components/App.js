@@ -23,6 +23,7 @@ import VisibleTodoList from './VisibleTodoList';
 //   }
 // }
 
+//Params is a property from react-router where you can get values from the url
 const App = () => {
   return(
   	<div>

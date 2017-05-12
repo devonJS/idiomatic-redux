@@ -28,4 +28,21 @@ const todos = (state=[], action) => {
   }
 };
 
+// Selector, selects something from app state.
+// state.todos is passed as "state", but we call it parameter "state"
+// because it shares the same state as todos above, which is why 
+// we can colocate this reducer and selector in the same file.
+export const getVisibleTodos = (state, filter) => {
+	switch(filter) {
+		case "all": 
+  		return state;
+    case "active":
+  		return state.filter(todo => !todo.completed);
+    case "completed":
+  		return state.filter(todo => todo.completed);
+    default:
+      throw new Error(`Unknown filter: ${filter}.`);
+  }
+}
+
 export default todos;
